@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(awk '{print \"clip0.mp4:\", $5, \"bytes\"}')",
+      "Bash(awk '{print \"clip0 in dist:\", $5, \"bytes\"}')"
     ]
   }
 }

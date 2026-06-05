@@ -16,7 +16,7 @@ export default function Work() {
           </Reveal>
         </Parallax>
         <Reveal delay={0.1}>
-          <p>Real builds — product, platform, agents, and the pipelines behind them.</p>
+          <p>Real builds — products, client sites, agents, and the pipelines behind them.</p>
         </Reveal>
       </div>
 
