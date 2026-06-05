@@ -1,0 +1,34 @@
+CONNOR CLOSE
+ENGINEERING · PRODUCT
+Fishtown, Philadelphia PA · cclosework@gmail.com · (603) 933-1290 · linkedin.com/in/c0nn0r-cl0se · github.com/K3lloggs 
+
+EXPERIENCE
+Shreve, Crump & Low	BOSTON, MA
+Project Lead, Engineer & Product Strategy	Nov 2024 — Jun 2025
+—	Led mobile commerce app end-to-end as the sole engineer and project lead, reporting directly to executives on scope, timeline, and ROI — grew to 80 active users within 10 days of Launch, 5/5 App Store rating with zero security incidents.
+—	Created and Launched B2B wholesale network among other vendors to circulate stagnant inventory. Brought $4.6M of dead stock online - directly available to 1000+ added stores. First in the industry. Collected 4000 distinct vendor contacts from web crawler agent.
+—	Built ETL pipeline creating a true data source and syncing legacy systems, eliminating manual catalog work and saving ~30 hrs/week (~$35K/year); extended it for automated data ingestion for business / product insight and QC. Cutting SKU onboarding from multi day effort data management effort to ~30-minute cloud function.
+—	Built autonomous browser agent (Playwright) to execute web-admin CRUD and recurring tasks, eliminating ~99% of manual effort on managing product on the store website (~$45K/year saved). 
+—	Cleared a 10 year, 32,000-product SKU, data integrity backlog with python, hitting 100% accuracy and avoiding a $25K vendor contract. Originally kept on paper.
+
+Aquitaine Bar à Vin	SOUTH END, BOSTON, MA
+Interim General Manager · Assistant General Manager	Jul 2024 — Oct 2024
+—	Ran a 30-person team at a $120K/month French bistro — clients, inventory, bar, service, and scheduling, front to back.
+
+Machine Learning Research   			                             UMASS, BOSTON, MA   
+Computer Vision                                             					      	  2022 — 2023
+—	Built a TensorFlow CNN for MRI classification (92.07% accuracy); applied VGG16 transfer learning and 5-fold cross-validation to cut generalization error 9.3% and training time 45%.
+
+Stack   Python · Go · JavaScript · C / C++ · SQL / NoSQL ·React · Docker · Kubernetes· Linux · Git
+Cloud   GCP · AWS · Azure  
+ML / AI   TensorFlow · PySpark · n8n· Playwright· MCP · Claude Code 
+Languages   English (native) · Spanish (conversational) · Italian (basic) · Arabic (basic)
+
+EDUCATION
+University of Massachusetts, Boston — B.S Computer Science	2022 — 2024
+University of Maine — Computer Science; Cybersecurity Team	2020 — 2022
+
+CREDENTIALS
+Google Advanced Data Analytics	2024
+IBM Data Science Professional	2022
+Cisco Certified Network Associate	2020

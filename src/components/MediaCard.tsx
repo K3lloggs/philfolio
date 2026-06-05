@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ElementType } from 'react'
+import { useEffect, useRef, type ElementType, type KeyboardEvent } from 'react'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { EASE, VIEWPORT } from '../lib/motion'
 import type { Project } from '../lib/content'
@@ -18,10 +18,18 @@ const wipe: Variants = {
  * Owns all Work media: still or video, masked entrance, in-view play, hover
  * coordination, zero CLS. Swapping a still for a clip changes nothing structural.
  */
-export default function MediaCard({ project }: { project: Project }) {
-  const { title, sub, src, blur, fit, video, href } = project
+export default function MediaCard({
+  project,
+  onOpen,
+}: {
+  project: Project
+  onOpen?: (p: Project) => void
+}) {
+  const { title, sub, src, blur, fit, video, href, gallery } = project
   const reduced = useReducedMotion()
   const videoRef = useRef<HTMLVideoElement>(null)
+  // A gallery card opens the case-study modal; an href card links out.
+  const opensModal = !!gallery && !!onOpen
 
   // Video wakes as it enters view, sleeps as it leaves. Held on poster under
   // reduced motion.
@@ -44,9 +52,23 @@ export default function MediaCard({ project }: { project: Project }) {
   }
 
   const Tag = (href ? motion.a : motion.div) as ElementType
+  const open = () => onOpen?.(project)
   const linkProps = href
     ? { href, target: '_blank', rel: 'noopener noreferrer' }
-    : {}
+    : opensModal
+      ? {
+          onClick: open,
+          role: 'button',
+          tabIndex: 0,
+          onKeyDown: (e: KeyboardEvent) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              open()
+            }
+          },
+          'aria-label': `${title} — view case study`,
+        }
+      : {}
 
   return (
     <Tag
@@ -79,6 +101,8 @@ export default function MediaCard({ project }: { project: Project }) {
 
       {/* shade that wipes open on entrance */}
       <motion.div className="work-wipe" variants={wipe} aria-hidden />
+
+      {opensModal && <span className="work-cue">View case &rarr;</span>}
 
       <div className="label">
         <div className="t">{title}</div>

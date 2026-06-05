@@ -1,10 +1,16 @@
+import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal'
 import Parallax from './Parallax'
 import MediaCard from './MediaCard'
-import { projects } from '../lib/content'
+import ProjectModal from './ProjectModal'
+import { projects, type Project } from '../lib/content'
 import { STAGGER } from '../lib/motion'
 
 export default function Work() {
+  // The open case-study (cards carrying a `gallery` open the modal on click).
+  const [active, setActive] = useState<Project | null>(null)
+
   return (
     <section id="work">
       <div className="svc-head">
@@ -24,10 +30,14 @@ export default function Work() {
         {projects.map((p, i) => (
           // Reveal handles the card's fade-rise; MediaCard owns the media settle.
           <Reveal key={p.title} delay={(i % 2) * STAGGER}>
-            <MediaCard project={p} />
+            <MediaCard project={p} onOpen={setActive} />
           </Reveal>
         ))}
       </div>
+
+      <AnimatePresence>
+        {active && <ProjectModal project={active} onClose={() => setActive(null)} />}
+      </AnimatePresence>
     </section>
   )
 }

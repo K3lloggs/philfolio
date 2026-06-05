@@ -8,6 +8,7 @@ import Marquee from './components/Marquee'
 import Services from './components/Services'
 import About from './components/About'
 import Work from './components/Work'
+import Resume from './components/Resume'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -26,6 +27,7 @@ export default function App() {
           <Services />
           <About />
           <Work />
+          <Resume />
           <CTA />
         </main>
         <Footer />

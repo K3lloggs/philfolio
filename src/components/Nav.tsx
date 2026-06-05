@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { nav } from '../lib/content'
 import { scrollToId } from '../lib/scroll'
 
-const SECTION_IDS = ['services', 'about', 'work', 'contact']
+const SECTION_IDS = ['services', 'about', 'work', 'resume', 'contact']
 
 export default function Nav() {
   const [active, setActive] = useState<string | null>(null)

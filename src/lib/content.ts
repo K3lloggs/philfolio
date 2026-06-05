@@ -1,5 +1,6 @@
 // Single source of truth for all site content. Copy lifted from the prototype.
 // Media lives in /public/media (optimized webp + base64 blur placeholders).
+import { sclGallery, type Shot } from './galleryData'
 
 export const profile = {
   first: 'CONNOR',
@@ -18,6 +19,7 @@ export const nav: NavItem[] = [
   { label: 'Skills', href: '#services' },
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#work', chevron: true },
+  { label: 'Résumé', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -115,6 +117,12 @@ export type Project = {
   /** optional in-view / hover video (poster = src). Drop a clip in to light it up. */
   video?: { mp4?: string; webm?: string }
   href?: string
+  /** small meta line shown in the case-study modal (stack / context / dates) */
+  meta?: string
+  /** longer case-study copy shown in the modal */
+  summary?: string
+  /** phone-screen gallery — its presence makes the card open the case-study modal */
+  gallery?: Shot[]
 }
 export const projects: Project[] = [
   {
@@ -124,6 +132,10 @@ export const projects: Project[] = [
     blur: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAUAAkDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDpGuZYr6OBiro3BwmDn86nx71H5KSXq3Z+9GpThuPxqTI9aAOZW6uLe4kEUzDcec8+vrWp9om/v/oKKKtkI//Z',
     fit: 'contain',
     video: { mp4: '/media/clip0.mp4' },
+    meta: 'Shreve, Crump & Low · iOS · React Native · 2024–25',
+    summary:
+      'I designed and shipped the Shreve, Crump & Low commerce app end-to-end as the sole engineer and project lead — Stripe checkout, real-time inventory on Firebase, and push notifications. It grew to 80 active users within 10 days of launch and holds a 5/5 App Store rating with zero security incidents. A few screens from the live build:',
+    gallery: sclGallery,
   },
   {
     title: 'B2B Wholesale Network',
@@ -164,3 +176,70 @@ export const projects: Project[] = [
     fit: 'cover',
   },
 ]
+
+export type Job = {
+  role: string
+  org: string
+  place: string
+  dates: string
+  bullets: string[]
+}
+export type SkillGroup = { label: string; items: string[] }
+export type Credential = { name: string; place: string; dates: string }
+
+export const resume = {
+  kicker: 'Résumé',
+  lead: 'The ',
+  accent: 'track record',
+  tail: ' — roles, stack, and the metrics behind them.',
+  // a plain-text copy lives in /public for download
+  download: '/resume.txt',
+  experience: [
+    {
+      role: 'Project Lead, Engineer & Product Strategy',
+      org: 'Shreve, Crump & Low',
+      place: 'Boston, MA',
+      dates: 'Nov 2024 — Jun 2025',
+      bullets: [
+        'Led the mobile commerce app end-to-end as the sole engineer and project lead, reporting directly to executives on scope, timeline, and ROI — grew to 80 active users within 10 days of launch, a 5/5 App Store rating, and zero security incidents.',
+        'Created and launched a B2B wholesale network across vendors to circulate stagnant inventory — bringing $4.6M of dead stock online, directly available to 1,000+ added stores. First in the industry. Collected 4,000 distinct vendor contacts via a web-crawler agent.',
+        'Built an ETL pipeline creating a true data source and syncing legacy systems, eliminating manual catalog work and saving ~30 hrs/week (~$35K/year); extended it for automated ingestion driving business and product insight and QC — cutting SKU onboarding from a multi-day effort to a ~30-minute cloud function.',
+        'Built an autonomous browser agent (Playwright) to execute web-admin CRUD and recurring tasks, eliminating ~99% of manual effort managing product on the store website (~$45K/year saved).',
+        'Cleared a 10-year, 32,000-product SKU data-integrity backlog with Python — hitting 100% accuracy and avoiding a $25K vendor contract. Originally kept on paper.',
+      ],
+    },
+    {
+      role: 'Interim General Manager · Assistant General Manager',
+      org: 'Aquitaine Bar à Vin',
+      place: 'South End, Boston, MA',
+      dates: 'Jul 2024 — Oct 2024',
+      bullets: [
+        'Ran a 30-person team at a $120K/month French bistro — clients, inventory, bar, service, and scheduling, front to back.',
+      ],
+    },
+    {
+      role: 'Machine Learning Research · Computer Vision',
+      org: 'University of Massachusetts, Boston',
+      place: 'Boston, MA',
+      dates: '2022 — 2023',
+      bullets: [
+        'Built a TensorFlow CNN for MRI classification (92.07% accuracy); applied VGG16 transfer learning and 5-fold cross-validation to cut generalization error 9.3% and training time 45%.',
+      ],
+    },
+  ] as Job[],
+  skills: [
+    { label: 'Stack', items: ['Python', 'Go', 'JavaScript', 'C / C++', 'SQL / NoSQL', 'React', 'Docker', 'Kubernetes', 'Linux', 'Git'] },
+    { label: 'Cloud', items: ['GCP', 'AWS', 'Azure'] },
+    { label: 'ML / AI', items: ['TensorFlow', 'PySpark', 'n8n', 'Playwright', 'MCP', 'Claude Code'] },
+    { label: 'Languages', items: ['English (native)', 'Spanish (conversational)', 'Italian (basic)', 'Arabic (basic)'] },
+  ] as SkillGroup[],
+  education: [
+    { name: 'University of Massachusetts, Boston', place: 'B.S. Computer Science', dates: '2022 — 2024' },
+    { name: 'University of Maine', place: 'Computer Science · Cybersecurity Team', dates: '2020 — 2022' },
+  ] as Credential[],
+  credentials: [
+    { name: 'Google Advanced Data Analytics', place: 'Certificate', dates: '2024' },
+    { name: 'IBM Data Science Professional', place: 'Certificate', dates: '2022' },
+    { name: 'Cisco Certified Network Associate', place: 'CCNA', dates: '2020' },
+  ] as Credential[],
+}

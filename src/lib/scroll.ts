@@ -14,3 +14,14 @@ export function scrollToId(hash: string) {
   if (instance) instance.scrollTo(el as HTMLElement, { offset: 0, duration: 1.1 })
   else (el as HTMLElement).scrollIntoView({ behavior: 'smooth' })
 }
+
+/** Freeze background scroll while an overlay is open (Lenis + body fallback). */
+export function lockScroll() {
+  instance?.stop()
+  document.body.style.overflow = 'hidden'
+}
+
+export function unlockScroll() {
+  instance?.start()
+  document.body.style.overflow = ''
+}
