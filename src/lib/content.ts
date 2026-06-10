@@ -34,9 +34,9 @@ export const contact = {
 export const statement = {
   kicker: 'The work',
   // <em> wraps the italic clay accent
-  lead: 'I build software and AI systems that ',
-  accent: 'cut cost, save hours, and make money',
-  tail: ' — not just demos.',
+  lead: 'Software and AI systems that ',
+  accent: 'cut cost, stop headaches, and make money',
+  tail: ' — functionally.',
 }
 
 export type Stat = {
@@ -48,26 +48,26 @@ export type Stat = {
   label: string
 }
 export const stats: Stat[] = [
-  { prefix: '$', value: 4.6, suffix: 'M', decimals: 1, label: 'Dead stock brought online, B2B — first in the industry' },
+  { prefix: '$', value: 4.6, suffix: 'M', decimals: 1, label: 'Market Volume, B2B exchange — first in the industry' },
   { prefix: '~$', value: 80, suffix: 'K', label: 'Saved per year via automation & agents' },
   { value: 32, suffix: 'K', label: 'Product SKUs cleared to 100% accuracy' },
   { value: 5, display: '5/5', label: 'App Store rating, zero security incidents' },
 ]
 
-export const marquee = ['Product Design', 'UI/UX', 'Web Design', 'Engineering', 'AI Automation']
+export const marquee = ['Data Engineering', 'Mobile Development', 'Cloud Dev', 'Product Design', 'UI/UX', 'Web Design', 'Agent development']
 
 export type Service = { num: string; title: string; body: string; tags: string[] }
 export const services: Service[] = [
   {
     num: '01',
     title: 'Product Design &\nGo-to-Market',
-    body: 'From concept to launch. I scope the product, define the flows, and take it to market — like the commerce app I led solo to 80 active users in 10 days, and the B2B network that put $4.6M of inventory in front of 1,000+ new stores.',
+    body: 'Concept to launch. Product Scope. I define the flows, and take it to market — Demonstrated Track Record of Go To Market.',
     tags: ['MVP → Launch', 'Product Strategy', 'Roadmapping', 'B2B / B2C', 'Positioning'],
   },
   {
     num: '02',
     title: 'UI / UX',
-    body: 'Interfaces people actually want to use. User journeys, wireframes, and prototypes grounded in how the product makes money — a 5/5-rated mobile app with zero security incidents, not screens that only look good in a deck.',
+    body: 'Interfaces that prompt users. Cognitively intuitive design. User journeys, wireframes, and prototypes grounded scientific design principles.',
     tags: ['User Flows', 'Wireframing', 'Prototyping', 'Figma', 'Design Systems'],
   },
   {
@@ -79,19 +79,19 @@ export const services: Service[] = [
   {
     num: '04',
     title: 'Mobile\nDevelopment',
-    body: 'Native-feel apps, end to end. I designed and shipped a 5/5-rated iOS commerce app as sole engineer — Stripe checkout, real-time inventory on Firebase, and push notifications — to 80 active users in its first 10 days, with zero security incidents.',
+    body: 'Native-feel apps, end to end. — Stripe checkout, real-time inventory. Hit me.',
     tags: ['React Native', 'Expo', 'iOS', 'Firebase', 'Stripe', 'Push Notifications'],
   },
   {
     num: '05',
     title: 'Software\nEngineering',
-    body: 'Full-stack builds and the plumbing behind them. ETL pipelines that sync legacy systems and kill manual work — one cut catalog effort ~30 hrs/week and dropped SKU onboarding from days to a 30-minute cloud function.',
+    body: 'Full-stack builds and the plumbing behind them. ETL, API dev, cloud infra, ai.',
     tags: ['Python', 'Go', 'JavaScript', 'SQL / NoSQL', 'Docker', 'Kubernetes', 'GCP · AWS · Azure'],
   },
   {
     num: '06',
     title: 'AI Automation &\nAgents',
-    body: 'The edge. I build autonomous agents and AI workflows that do the work nobody should be doing by hand — a Playwright browser agent that wiped out ~99% of manual store admin (~$45K/yr), plus crawlers, ingestion, and QC pipelines that run themselves.',
+    body: 'Autonomous agents and AI workflows that do the work nobody should be doing by hand',
     tags: ['Playwright Agents', 'n8n Workflows', 'MCP', 'Claude Code', 'Web Crawlers', 'Automated QC'],
   },
 ]
@@ -102,8 +102,7 @@ export const about = {
   bigAccent: 'whole',
   bigTail: ' pipeline — design, code, ship, automate.',
   body: [
-    "I'm a full-stack engineer and product builder based in Philadelphia. At Shreve, Crump & Low I was the sole engineer and project lead — reporting straight to executives on scope, timeline, and ROI.",
-    "I move fast and build things that earn their keep. AI and automation are where I push hardest: if a task is repetitive, I'd rather build the agent that ends it. When the job's done, the result is live and measured.",
+    "I move fast and build things that execute. Results are live and measured.",
   ],
 }
 
